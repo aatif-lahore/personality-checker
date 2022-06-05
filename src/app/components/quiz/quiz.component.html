@@ -20,6 +20,12 @@
                         </button>
                     </form>
                 </ng-container>
+                <ng-container *ngIf="showResults">
+                    <h3 class="heading-black text-capitalize">{{result}}</h3>
+                    <div class="lead py-3">
+                        Yes
+                    </div>
+                </ng-container>
             </div>
         </div>
     </div>

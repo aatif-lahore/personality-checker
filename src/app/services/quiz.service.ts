@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {Question} from '../core/types';
 import {questionsData} from '../data/questions';
 
@@ -9,11 +9,14 @@ import {questionsData} from '../data/questions';
 export class QuizService {
 
   private questions: Question[] = questionsData;
-  private userAnswers: Question[]  [];
+  private userAnswers: Question[] = [];
+  private weightThreshold = 2;
+  private INTROVERT = 'You\'re an introvert';
+  private EXTROVERT = 'You\'re an extrovert';
 
   constructor() { }
 
-  getQuestion(currentId?: number): Observable<Question> {
+  getQuestion(currentId?: number): Observable<Question | null> {
     let question = null;
 
     if (currentId) {
@@ -23,15 +26,29 @@ export class QuizService {
       question = this.questions[0];
     }
 
-    question.selectedAnswer = question.answers[0];
+    if (question != null) {
+      question.selectedAnswer = question.answers[0];
+    }
+
     return of(question);
   }
 
   processAnswer(question: Question, answerId: number): void {
-
+    question.selectedAnswer = question.answers.find((a => a.id === answerId));
+    this.userAnswers.push(question);
   }
 
-  processResult(): void {
+  processResult(): string {
+    let weight = 0;
 
+    this.userAnswers.map(question => {
+      // @ts-ignore
+      weight = weight + question.selectedAnswer?.weight;
+    });
+
+    if (weight > this.weightThreshold) {
+      return this.EXTROVERT
+    }
+    return this.INTROVERT;
   }
 }

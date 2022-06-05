@@ -13,6 +13,8 @@ export class QuizComponent implements OnInit {
 
   currentQuestion: Question;
   formGroup: FormGroup;
+  showResults: boolean = false;
+  result: string;
 
   constructor(protected service: QuizService) {
   }
@@ -30,12 +32,16 @@ export class QuizComponent implements OnInit {
 
   next() {
     if (this.formGroup.valid) {
-      this.service.processAnswer(this.currentQuestion, this.formGroup.value);
+      this.service.processAnswer(this.currentQuestion, this.formGroup.value.id);
 
       this.service.getQuestion(this.currentQuestion.id)
           .pipe(take(1))
           .subscribe(ques => {
-            this.currentQuestion = ques;
+              this.currentQuestion = ques;
+              this.showResults = ques == null;
+              if (this.showResults) {
+                 this.result = this.service.processResult();
+              }
           });
     }
   }
