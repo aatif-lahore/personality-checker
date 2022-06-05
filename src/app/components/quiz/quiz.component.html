@@ -1,0 +1,26 @@
+<section class="py-7 py-md-0 bg-hero" id="home">
+    <div class="container">
+        <div class="row vh-md-100">
+            <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
+                <ng-container *ngIf="currentQuestion">
+                    <form [formGroup]="formGroup">
+                        <h3 class="heading-black text-capitalize">{{currentQuestion.question}}</h3>
+                        <div class="lead py-3">
+                            <div class="form-check" *ngFor="let ans of currentQuestion.answers">
+                                <input class="form-check-input" type="radio" id="flexRadioDefault1"
+                                formControlName="id" [value]="ans.id">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    {{ans.description}}
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary d-inline-flex flex-row align-items-center" (click)="next()">
+                            Next
+                            <em class="ml-2" data-feather="arrow-right"></em>
+                        </button>
+                    </form>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>
