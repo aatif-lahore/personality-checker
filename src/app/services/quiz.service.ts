@@ -8,13 +8,23 @@ import {questionsData} from '../data/questions';
 })
 export class QuizService {
 
-  private questions: Question[] = questionsData;
+  private questions: Question[];
   private userAnswers: Question[] = [];
   private weightThreshold = 3;
   private INTROVERT = 'You\'re an introvert';
   private EXTROVERT = 'You\'re an extrovert';
 
-  constructor() { }
+  constructor() {
+    this.questions  = questionsData;
+  }
+
+  getAllQuestions(): Question[] {
+    return this.questions;
+  }
+
+  getCurrentAnswers(): Question[] {
+    return this.userAnswers;
+  }
 
   getTotalQuestionCount(): number {
     return this.questions.length;
