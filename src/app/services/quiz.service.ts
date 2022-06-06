@@ -10,7 +10,7 @@ export class QuizService {
 
   private questions: Question[];
   private userAnswers: Question[] = [];
-  private weightThreshold = 3;
+  private weightThreshold = 6;
   private INTROVERT = 'You\'re an introvert';
   private EXTROVERT = 'You\'re an extrovert';
 

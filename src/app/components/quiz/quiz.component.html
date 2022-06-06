@@ -5,8 +5,8 @@
                 <ng-container *ngIf="currentQuestion">
                     <div class="card">
                     <form [formGroup]="formGroup">
-                        <div class="card-header text-right">
-                            {{currentQuestion.id}} / {{totalQuestionsCount}}
+                        <div class="card-header text-left">
+                            Question {{currentQuestion.id}} / {{totalQuestionsCount}}
                         </div>
                         <div class="card-body p-5">
                             <h3 class="heading-black text-capitalize">{{currentQuestion.question}}</h3>
@@ -20,9 +20,9 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-primary d-inline-flex flex-row align-items-center" (click)="next()">
+                            <button class="btn btn-primary btn-block align-items-center" (click)="next()">
                                 Next
-                                <em class="ml-2" data-feather="arrow-right"></em>
+                                <em class="ml-2 align-middle" data-feather="arrow-right"></em>
                             </button>
                         </div>
                     </form>
@@ -34,7 +34,7 @@
                             <h5 class="heading-black text-capitalize">Results</h5>
                             <h1 class="heading-black text-capitalize">{{result}}</h1>
                             <button class="btn btn-primary d-inline-flex flex-row align-items-center mt-5" [routerLink]="'/'">
-                                Re-take
+                                Re-take Test
                                 <em class="ml-2" data-feather="arrow-left"></em>
                             </button>
                         </div>
