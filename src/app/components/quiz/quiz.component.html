@@ -11,10 +11,9 @@
                         <div class="card-body p-5">
                             <h3 class="heading-black text-capitalize">{{currentQuestion.question}}</h3>
                             <div class="lead py-3">
-                                <div class="form-check d-flex" *ngFor="let ans of currentQuestion.answers">
-                                    <input class="form-check-input" type="radio" id="flexRadioDefault1"
-                                           formControlName="id" [value]="ans.id">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                <div class="form-check d-flex radio-spacing" *ngFor="let ans of currentQuestion.answers; let a = index;">
+                                    <input id="cntrl{{a}}" class="form-check-input" type="radio" formControlName="id" [value]="ans.id">
+                                    <label class="form-check-label" for="cntrl{{a}}">
                                         {{ans.description}}
                                     </label>
                                 </div>

@@ -13,7 +13,7 @@ export class QuizComponent implements OnInit {
 
   currentQuestion: Question;
   formGroup: FormGroup;
-  showResults: boolean = false;
+  showResults = false;
   result: string;
   totalQuestionsCount: number;
 

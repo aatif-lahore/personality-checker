@@ -25,7 +25,7 @@ export class QuizService {
 
     if (currentId) {
       currentId = currentId + 1;
-      question = this.questions.filter((q=> q.id === currentId))[0]
+      question = this.questions.filter((q => q.id === currentId))[0];
     } else {
       question = this.questions[0];
     }
@@ -52,7 +52,7 @@ export class QuizService {
     this.userAnswers = [];
 
     if (weight > this.weightThreshold) {
-      return this.EXTROVERT
+      return this.EXTROVERT;
     }
     return this.INTROVERT;
   }
