@@ -7,7 +7,7 @@ export const questionsData: Question[] = [
         answers: [
             {
                 id: 1,
-                description: 'I am good',
+                description: 'I am intro',
                 weight: 1
             },
             {
@@ -23,7 +23,7 @@ export const questionsData: Question[] = [
         answers: [
             {
                 id: 1,
-                description: 'I am good',
+                description: 'I am intro',
                 weight: 1
             },
             {
@@ -39,7 +39,7 @@ export const questionsData: Question[] = [
         answers: [
             {
                 id: 1,
-                description: 'I am good',
+                description: 'I am intro',
                 weight: 1
             },
             {

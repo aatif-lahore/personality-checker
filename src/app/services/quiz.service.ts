@@ -10,11 +10,15 @@ export class QuizService {
 
   private questions: Question[] = questionsData;
   private userAnswers: Question[] = [];
-  private weightThreshold = 2;
+  private weightThreshold = 3;
   private INTROVERT = 'You\'re an introvert';
   private EXTROVERT = 'You\'re an extrovert';
 
   constructor() { }
+
+  getTotalQuestionCount(): number {
+    return this.questions.length;
+  }
 
   getQuestion(currentId?: number): Observable<Question | null> {
     let question = null;
@@ -45,6 +49,7 @@ export class QuizService {
       // @ts-ignore
       weight = weight + question.selectedAnswer?.weight;
     });
+    this.userAnswers = [];
 
     if (weight > this.weightThreshold) {
       return this.EXTROVERT

@@ -3,27 +3,42 @@
         <div class="row vh-md-100">
             <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
                 <ng-container *ngIf="currentQuestion">
+                    <div class="card">
                     <form [formGroup]="formGroup">
-                        <h3 class="heading-black text-capitalize">{{currentQuestion.question}}</h3>
-                        <div class="lead py-3">
-                            <div class="form-check" *ngFor="let ans of currentQuestion.answers">
-                                <input class="form-check-input" type="radio" id="flexRadioDefault1"
-                                formControlName="id" [value]="ans.id">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    {{ans.description}}
-                                </label>
+                        <div class="card-header text-right">
+                            {{currentQuestion.id}} / {{totalQuestionsCount}}
+                        </div>
+                        <div class="card-body p-5">
+                            <h3 class="heading-black text-capitalize">{{currentQuestion.question}}</h3>
+                            <div class="lead py-3">
+                                <div class="form-check d-flex" *ngFor="let ans of currentQuestion.answers">
+                                    <input class="form-check-input" type="radio" id="flexRadioDefault1"
+                                           formControlName="id" [value]="ans.id">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        {{ans.description}}
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary d-inline-flex flex-row align-items-center" (click)="next()">
-                            Next
-                            <em class="ml-2" data-feather="arrow-right"></em>
-                        </button>
+                        <div class="card-footer">
+                            <button class="btn btn-primary d-inline-flex flex-row align-items-center" (click)="next()">
+                                Next
+                                <em class="ml-2" data-feather="arrow-right"></em>
+                            </button>
+                        </div>
                     </form>
+                    </div>
                 </ng-container>
                 <ng-container *ngIf="showResults">
-                    <h3 class="heading-black text-capitalize">{{result}}</h3>
-                    <div class="lead py-3">
-                        Yes
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <h5 class="heading-black text-capitalize">Results</h5>
+                            <h1 class="heading-black text-capitalize">{{result}}</h1>
+                            <button class="btn btn-primary d-inline-flex flex-row align-items-center mt-5" [routerLink]="'/'">
+                                Re-take
+                                <em class="ml-2" data-feather="arrow-left"></em>
+                            </button>
+                        </div>
                     </div>
                 </ng-container>
             </div>
