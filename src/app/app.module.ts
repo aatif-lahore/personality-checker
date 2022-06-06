@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { QuizIntroComponent } from './components/quiz-intro/quiz-intro.component';
-import { QuizResultsComponent } from './components/quiz-results/quiz-results.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -18,7 +17,6 @@ import {ReactiveFormsModule} from '@angular/forms';
     FooterComponent,
     HeaderComponent,
     QuizIntroComponent,
-    QuizResultsComponent,
     LandingComponent,
     QuizComponent
   ],
